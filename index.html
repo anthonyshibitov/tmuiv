@@ -79,8 +79,7 @@
         gsap.fromTo(scrollText, { x: scrollText.scrollWidth * -1 }, {
             x: "0%",
             scrollTrigger: {
-                star: "bottom bottom",
-                // end: "+=400",
+                start: "bottom bottom",
                 trigger: scrollText,
                 scrub: 0.5
             }
@@ -92,7 +91,6 @@
             x: (scrollTextTwo.scrollWidth - sectionTwo.offsetWidth) * -1,
             scrollTrigger: {
                 start: "bottom bottom",
-                // end: "+=400",
                 trigger: scrollText,
                 scrub: 0.5
             }
