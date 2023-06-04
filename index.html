@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+</head>
+<body>
+    <div class="videocontainer">
+        <img id="bg-lain" src="lain.jpeg">
+        <video playsinline autoplay muted loop id="bg-vid">
+            <source src="bg.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="content-container">
+        <center>
+            <div class="header">
+                <h1>TOOUCH MEE UNTIL I VOOMIT</h1>
+            </div>
+        </center>
+
+        <center class="scroll-container">
+            <div class="scrollDown">
+                scroll to continue
+            </div>
+            <img id="arrow" src="./arrow.png">
+        </center>
+
+        <div class="sticky">
+            <section id="sectionOne">
+                <div class="h-scrolling-text" id="scrollTextOne">
+                    TOUCHMEUNTILIVOMITOUCHMEUNTILIVOMITOUCHMEUNTILIVOMITOUCHMEUNTILIVOMITOUCHMEUNTILIVOMITOUCHMEUNTILIVOMITOUCHMEUNTILIVOMITOUCHMEUNTILIVOMIT
+                </div>
+            </section>
+            
+            <section id="sectionTwo">
+                <div class="h-scrolling-text" id="scrollTextTwo">
+                    TOUCHMEUNTILIVOMITOUCHMEUNTILIVOMITOUCHMEUNTILIVOMITOUCHMEUNTILIVOMITOUCHMEUNTILIVOMITOUCHMEUNTILIVOMITOUCHMEUNTILIVOMITOUCHMEUNTILIVOMIT
+                </div>
+            </section>
+        </div>
+
+        <div class="items">
+            <h2 class="h2-item">
+                TARDIVE DYSKINESIA ENJOYER
+            </h2>
+            <div class="item-right">
+                <h2 class="h2-item">
+                    CREDIBLE THREAT MAKER
+                </h2>
+            </div>
+            <h2 class="h2-item">
+                GAY FINANCIAL INSTR. & DERIV.
+            </h2>
+            <div class="item-right">
+                <h2 class="h2-item">
+                    I CAME BACK TO THE SHED AND STARTED HEARING THINGS
+                </h2>
+            </div>
+        </div>
+
+        <div style="overflow: hidden">
+            <img id="poles" src="./poles.jpg"/>
+        </div>
+    </div>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        const tl = gsap.timeline();
+        console.log("hello");
+
+        const scrollText = document.querySelector("#scrollTextOne");
+        gsap.fromTo(scrollText, { x: scrollText.scrollWidth * -1 }, {
+            x: "0%",
+            scrollTrigger: {
+                star: "bottom bottom",
+                // end: "+=400",
+                trigger: scrollText,
+                scrub: 0.5
+            }
+        });
+
+        const scrollTextTwo = document.querySelector("#scrollTextTwo");
+        const sectionTwo = document.querySelector("#sectionTwo");
+        gsap.fromTo(scrollTextTwo, {x: "100%" }, {
+            x: (scrollTextTwo.scrollWidth - sectionTwo.offsetWidth) * -1,
+            scrollTrigger: {
+                start: "bottom bottom",
+                // end: "+=400",
+                trigger: scrollText,
+                scrub: 0.5
+            }
+        })
+
+    </script>
+</body>
+</html>
