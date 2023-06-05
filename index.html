@@ -76,10 +76,11 @@
         console.log("hello");
 
         const scrollText = document.querySelector("#scrollTextOne");
-        gsap.fromTo(scrollText, { x: scrollText.scrollWidth * -1 }, {
+        gsap.fromTo(scrollText, { x: scrollText.scrollWidth * -1, opacity: 0}, {
             x: "0%",
+            opacity: 1,
             scrollTrigger: {
-                start: "bottom bottom",
+                start: "bottom 50%",
                 trigger: scrollText,
                 scrub: 0.5
             }
@@ -87,13 +88,25 @@
 
         const scrollTextTwo = document.querySelector("#scrollTextTwo");
         const sectionTwo = document.querySelector("#sectionTwo");
-        gsap.fromTo(scrollTextTwo, {x: "100%" }, {
+        gsap.fromTo(scrollTextTwo, {x: "100%", opacity: 0 }, {
             x: (scrollTextTwo.scrollWidth - sectionTwo.offsetWidth) * -1,
+            opacity: 1,
             scrollTrigger: {
-                start: "bottom bottom",
+                start: "bottom 50%",
                 trigger: scrollText,
                 scrub: 0.5
             }
+        });
+
+        const sticky = document.querySelectorAll("section");
+        sticky.forEach(sticky => {
+            gsap.fromTo(sticky, { backgroundColor: "rgba(0,0,0, 0)" } , {
+            backgroundColor: "rgba(0,0,0, 0.65)",
+            scrollTrigger: {
+                start: "bottom 50%",
+                trigger: sticky,
+                scrub: 0.5
+            }})
         })
 
     </script>
